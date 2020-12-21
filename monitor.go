@@ -46,11 +46,11 @@ func (m *monitor) CheckHealth(ctx context.Context, notifiers []string) error {
 			return http.ErrUseLastResponse
 		},
 	}
-	resp, err := client.Get(m.URL)
+	resp, err := client.Head(m.URL)
 	if err != nil {
 		return err
 	}
-	defer resp.Body.Close()
+	resp.Body.Close()
 	m.Code = resp.StatusCode
 
 	msg := fmt.Sprintf("checking %s (%s)", m.Name, m.URL)
@@ -64,6 +64,22 @@ func (m *monitor) CheckHealth(ctx context.Context, notifiers []string) error {
 		if resp.StatusCode == code {
 			match = true
 			break
+		}
+	}
+
+	// fall back to get request
+	if !match {
+		resp, err = client.Get(m.URL)
+		if err != nil {
+			return err
+		}
+		resp.Body.Close()
+		m.Code = resp.StatusCode
+		for _, code := range m.ExpectedCode {
+			if resp.StatusCode == code {
+				match = true
+				break
+			}
 		}
 	}
 
