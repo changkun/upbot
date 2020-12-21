@@ -1,0 +1,74 @@
+# Copyright 2020 Changkun Ou. All rights reserved.
+# Use of this source code is governed by a MIT
+# license that can be found in the LICENSE file.
+
+---
+addr: 0.0.0.0:9120
+sender:
+  mailgun:
+    enable: true # false will use the custom email settings
+    email: "Upbot <upbot@changkun.de>"
+    domain: mailgun.changkun.de
+    apikey: apikey
+    apibase: https://api.eu.mailgun.net/v3
+  custom: 
+    smtp_host: smtp.changkun.de
+    smtp_port: "587"
+    email: hi@changkun.de
+    username: hi
+    passcode: passcode
+default:
+  notifiers:
+    - hi@changkun.de
+  interval: 30 #seconds
+monitors:
+  # changkun.de
+  - name: changkun's homepage
+    url: https://changkun.de/
+    expected_code:
+      - 200
+    notifiers: # empty to use default setting
+    interval:  # empty to use default setting
+  - name: upbot
+    url: https://changkun.de/upbot/ping
+    expected_code:
+      - 200
+  - name: changkun's blog
+    url: https://blog.changkun.de/
+    expected_code:
+      - 200
+  - name: changkun/redir
+    url: https://changkun.de/x/
+    expected_code:
+      - 302
+  - name: modern-cpp
+    url: https://changkun.de/modern-cpp/
+    expected_code:
+      - 200
+  - name: midgard
+    url: https://changkun.de/midgard/ping
+    expected_code:
+      - 200
+  # golang.design
+  - name: golang.design homepage
+    url: https://golang.design/
+    expected_code:
+      - 200
+  - name: golang.design/history
+    url: https://golang.design/history
+    expected_code:
+      - 200
+      - 301
+  - name: golang.design/miner
+    url: https://golang.design/miner
+    expected_code:
+      - 200
+      - 301
+  - name: golang.design/redir
+    url: https://golang.design/x/
+    expected_code:
+      - 302
+  - name: golang.design/gossa
+    url: https://golang.design/gossa
+    expected_code:
+      - 200
