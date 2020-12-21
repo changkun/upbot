@@ -60,7 +60,7 @@ func main() {
 }
 
 func serve(ctx context.Context) {
-	http.HandleFunc("/upbot/ping", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/upbot", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("I'm OK"))
 	})
 	log.Printf("upbot is on: %s", conf.Addr)

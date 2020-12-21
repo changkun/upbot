@@ -30,7 +30,7 @@ monitors:
     notifiers: # empty to use default setting
     interval:  # empty to use default setting
   - name: upbot
-    url: https://changkun.de/upbot/ping
+    url: https://changkun.de/upbot
     expected_code:
       - 200
   - name: changkun's blog

@@ -12,7 +12,7 @@ make up
 
 - The upbot will send notification email to the configured recipients 
   if configured monitor status is changed.
-- The upbot service status can be checked from router [/upbot/ping](https://changkun.de/upbot/ping).
+- The upbot service status can be checked from router [/upbot](https://changkun.de/upbot).
 
 ## License
 
