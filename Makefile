@@ -4,7 +4,7 @@ BUILD_FLAGS = -mod vendor
 all:
 	go build $(BUILD_FLAGS)
 build:
-	GOOS=linux go build $(BUILD_FLAGS)
+	CGO_ENABLED=0 GOOS=linux go build $(BUILD_FLAGS)
 	docker build -t $(NAME):$(VERSION) -t $(NAME):latest -f Dockerfile .
 up: down build
 	docker-compose -f deploy.yml up -d
