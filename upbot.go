@@ -60,11 +60,16 @@ func main() {
 }
 
 func serve(ctx context.Context) {
+	addr := os.Getenv("UPBOT_ADDR")
+	if len(addr) == 0 {
+		addr = conf.Addr
+	}
+
 	http.HandleFunc("/upbot", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("I'm OK"))
 	})
-	log.Printf("upbot is on: %s", conf.Addr)
-	if err := http.ListenAndServe(conf.Addr, nil); err != nil {
+	log.Printf("upbot is on: %s", addr)
+	if err := http.ListenAndServe(addr, nil); err != nil {
 		log.Fatalf("failed to start upbot: %v", err)
 	}
 }

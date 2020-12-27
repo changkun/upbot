@@ -5,4 +5,5 @@
 FROM alpine
 WORKDIR /app
 COPY . .
+EXPOSE 80
 CMD ["/app/upbot"]

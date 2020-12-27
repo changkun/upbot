@@ -5,13 +5,15 @@
 version: "3"
 services:
   upbot:
-    build:
-      context: .
-      dockerfile: Dockerfile
     container_name: upbot
     restart: always
+    environment:
+      - "UPBOT_ADDR=upbot:80"
     volumes:
       - ./configs:/app/configs
     image: upbot:latest
-    ports:
-      - "9120:9120"
+    networks:
+      - traefik_proxy
+networks:
+  traefik_proxy:
+    external: true
