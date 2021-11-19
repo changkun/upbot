@@ -72,6 +72,10 @@ monitors:
     url: https://golang.design/gossa
     expected_code:
       - 200
+  - name: golang.design/gossa/main.js
+    url: https://golang.design/gossa/main.js
+    expected_code:
+      - 200
   # poly.red
   - name: poly.red
     url: https://poly.red
