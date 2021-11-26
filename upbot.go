@@ -65,9 +65,9 @@ func serve(ctx context.Context) {
 		addr = conf.Addr
 	}
 
-	http.HandleFunc("/upbot", func(w http.ResponseWriter, r *http.Request) {
+	http.Handle(wrapper(app, "/upbot", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("I'm OK"))
-	})
+	})))
 	log.Printf("upbot is on: %s", addr)
 	if err := http.ListenAndServe(addr, nil); err != nil {
 		log.Fatalf("failed to start upbot: %v", err)

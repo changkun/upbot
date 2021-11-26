@@ -8,7 +8,9 @@ services:
     container_name: upbot
     restart: always
     environment:
-      - "UPBOT_ADDR=upbot:80"
+      UPBOT_ADDR: upbot:80
+      NEWRELIC_NAME: ${NEWRELIC_NAME}
+      NEWRELIC_LICENSE: ${NEWRELIC_LICENSE}
     volumes:
       - ./configs:/app/configs
     image: upbot:latest

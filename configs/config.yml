@@ -11,7 +11,7 @@ sender:
     domain: mailgun.changkun.de
     apikey: apikey
     apibase: https://api.eu.mailgun.net/v3
-  custom: 
+  custom:
     smtp_host: smtp.changkun.de
     smtp_port: "587"
     email: hi@changkun.de
