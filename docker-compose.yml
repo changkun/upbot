@@ -11,6 +11,7 @@ services:
       UPBOT_ADDR: upbot:80
       NEWRELIC_NAME: ${NEWRELIC_NAME}
       NEWRELIC_LICENSE: ${NEWRELIC_LICENSE}
+      MAILGUN_APIKEY: ${MAILGUN_APIKEY}
     volumes:
       - ./configs:/app/configs
     image: upbot:latest

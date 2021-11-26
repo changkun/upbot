@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"log"
 	"net/smtp"
+	"os"
 	"time"
 
 	"github.com/mailgun/mailgun-go/v4"
@@ -17,8 +18,12 @@ import (
 var mg *mailgun.MailgunImpl
 
 func init() {
-	mg = mailgun.NewMailgun(
-		conf.Sender.Mailgun.Domain, conf.Sender.Mailgun.APIKey)
+	apikey := os.Getenv("MAILGUN_APIKEY")
+	if apikey == "" {
+		log.Fatal("MAILGUN_APIKEY is empty!")
+	}
+
+	mg = mailgun.NewMailgun(conf.Sender.Mailgun.Domain, apikey)
 	mg.SetAPIBase(conf.Sender.Mailgun.APIBase)
 }
 

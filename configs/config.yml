@@ -9,7 +9,6 @@ sender:
     enable: true # false will use the custom email settings
     email: "Upbot <upbot@changkun.de>"
     domain: mailgun.changkun.de
-    apikey: apikey
     apibase: https://api.eu.mailgun.net/v3
   custom:
     smtp_host: smtp.changkun.de

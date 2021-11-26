@@ -18,7 +18,6 @@ type config struct {
 			Email   string `yaml:"email"`
 			Enable  bool   `yaml:"enable"`
 			Domain  string `yaml:"domain"`
-			APIKey  string `yaml:"apikey"`
 			APIBase string `yaml:"apibase"`
 		} `yaml:"mailgun"`
 		Custom struct {
