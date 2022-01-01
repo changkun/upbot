@@ -33,7 +33,7 @@ monitors:
     expected_code:
       - 200
   - name: changkun's blog
-    url: https://changkun.de/blog
+    url: https://changkun.de/blog/
     expected_code:
       - 200
   - name: changkun/redir
